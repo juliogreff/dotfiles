@@ -69,7 +69,10 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # Setup go
 export GO111MODULE=on
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 
+# Load host-dependent config from ~/.zsh.d automatically
 if [ -d ~/.zsh.d ]
 then
 	for f in $(find ~/.zsh.d -name "*.sh")
