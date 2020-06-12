@@ -18,3 +18,5 @@
 	jenkins = push -f origin HEAD:ci
 [diff]
 	algorithm = patience
+[pull]
+	rebase = false
