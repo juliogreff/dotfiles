@@ -1,15 +1,14 @@
 call plug#begin('~/.local/share/nvim/plugged')
+Plug '/usr/local/opt/fzf'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 Plug 'hail2u/vim-css3-syntax'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'jvirtanen/vim-hcl'
 Plug 'neomake/neomake'
 Plug 'slim-template/vim-slim'
 Plug 'vim-ruby/vim-ruby'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'udalov/kotlin-vim'
-
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'itchyny/lightline.vim'
 call plug#end()
 
 
@@ -68,9 +67,9 @@ nnoremap <C-W>vgd :<C-u>call go#def#Jump("vsplit", 0)<cr>
 
 
 " Neomake stuff
-call neomake#configure#automake('w') " when writing a buffer, no delay
-let g:neomake_open_list = 2
-let g:neomake_html_enabled_makers = []
+" call neomake#configure#automake('w') " when writing a buffer, no delay
+" let g:neomake_open_list = 2
+" let g:neomake_html_enabled_makers = []
 
 " YAML stuff
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

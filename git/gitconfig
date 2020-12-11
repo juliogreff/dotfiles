@@ -20,3 +20,5 @@
 	algorithm = patience
 [pull]
 	rebase = false
+[gpg]
+	program = gpg
