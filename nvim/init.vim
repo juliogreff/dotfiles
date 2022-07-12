@@ -7,8 +7,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'jvirtanen/vim-hcl'
 Plug 'neomake/neomake'
-Plug 'slim-template/vim-slim'
 Plug 'vim-ruby/vim-ruby'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
 
 
@@ -23,6 +25,11 @@ set relativenumber
 set nowrap
 set termguicolors
 set noshowmode
+
+" tabs and spaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 
 " search things
 set ignorecase
@@ -86,3 +93,6 @@ let g:lightline = {
 function! LightlineFilename()
   return expand('%')
 endfunction
+
+" TypeScript stuff
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
