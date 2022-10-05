@@ -51,25 +51,24 @@ source $ZSH/oh-my-zsh.sh
 
 alias vim=nvim
 alias k=kubectl
+alias ls=exa
 
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 export LC_ALL=en_US.UTF-8
 
 # https://geoff.greer.fm/lscolors/
-export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43:"
-
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+# export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43:"
 
 # Setup fzf. Requires "brew install fzf".
-export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
-export FZF_DEFAULT_COMMAND='fd --type f --exclude .git'
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+fi
+[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
+source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 
 # Setup go
-export GO111MODULE=on
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/Projects/go"
 export PATH="$GOPATH/bin:$PATH"
 
 # Load host-dependent config from ~/.zsh.d automatically
@@ -80,3 +79,4 @@ then
 		source "$f"
 	done
 fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
